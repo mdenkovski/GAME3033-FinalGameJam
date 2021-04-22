@@ -7,17 +7,17 @@ public class PauseUIBehaviour : MonoBehaviour
 {
     public void OnResumeGame()
     {
-        UnpauseGame();
+        PlayerController controller = FindObjectOfType<PlayerController>();
+        controller.ResumeGame();
     }
 
     public void OnMainMenu()
     {
-        UnpauseGame();
+        Time.timeScale = 1.0f;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
         SceneManager.LoadScene("MainMenu");
     }
 
-    private void UnpauseGame()
-    {
-        Time.timeScale = 1.0f;
-    }
+    
 }
