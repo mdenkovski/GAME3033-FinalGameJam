@@ -43,4 +43,10 @@ public class GameManager : MonoBehaviour
         PlayerController.GameEnded();
         UIManager.ShowGameWin();
     }
+
+    public void GameLose()
+    {
+        PlayerController.GameEnded();
+        UIManager.ShowGameLose();
+    }
 }

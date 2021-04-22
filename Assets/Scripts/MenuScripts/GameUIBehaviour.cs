@@ -13,8 +13,11 @@ public class GameUIBehaviour : MonoBehaviour
     private bool Enabled = false;
     private float TimeRemaining;
 
+    private GameManager GameManager;
+
     private void Awake()
     {
+        GameManager = FindObjectOfType<GameManager>();
         TimeRemainingText.text = $"0:00";
     }
 
@@ -27,8 +30,9 @@ public class GameUIBehaviour : MonoBehaviour
         if (TimeRemaining <= 0)
         {
             Enabled = false;
+            GameManager.GameLose();
             return;
-            //TODO: notify of game over
+            
         }
 
         TimeRemainingText.text = ((int)TimeRemaining).ToString();
