@@ -45,7 +45,6 @@ public class GameUIBehaviour : MonoBehaviour
         NumCoinsRemainingText.text = numCoinsToCollect.ToString();
         Enabled = true;
         TimeRemaining = timeToCollectCoins;
-        //TimeRemainingText.text = ((int)TimeRemaining).ToString();
     }
 
     public void UpdateNumCoins(int Num)

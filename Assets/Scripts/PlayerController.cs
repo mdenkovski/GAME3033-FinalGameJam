@@ -31,6 +31,11 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
     }
 
+    public void OnUnPause(InputValue value)
+    {
+        ResumeGame();
+    }
+
     public void ResumeGame()
     {
         UIManager.ShowGameMenu();
@@ -39,5 +44,12 @@ public class PlayerController : MonoBehaviour
         Time.timeScale = 1.0f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void GameEnded()
+    {
+        PlayerInput.SwitchCurrentActionMap("Pause");
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 }

@@ -6,6 +6,7 @@ public class GameUIManager : MonoBehaviour
 {
     [SerializeField] GameObject PauseUIPanel;
     [SerializeField] GameObject GameUIPanel;
+    [SerializeField] GameObject GameWinPanel;
 
     private void OnEnable()
     {
@@ -17,6 +18,7 @@ public class GameUIManager : MonoBehaviour
     {
         PauseUIPanel.SetActive(false);
         GameUIPanel.SetActive(false);
+        GameWinPanel.SetActive(false);
     }
 
     public void ShowPauseMenu()
@@ -31,6 +33,12 @@ public class GameUIManager : MonoBehaviour
         HideAllPanels();
         GameUIPanel.SetActive(true);
 
+    }
+
+    public void ShowGameWin()
+    {
+        HideAllPanels();
+        GameWinPanel.SetActive(true);
     }
 
 }

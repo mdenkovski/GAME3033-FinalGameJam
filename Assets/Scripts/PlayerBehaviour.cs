@@ -31,9 +31,9 @@ public class PlayerBehaviour : MonoBehaviour
     {
         if (SpawnPoint)
         {
+            NavAgent.enabled = false;
             transform.position = SpawnPoint.transform.position;
             transform.rotation = SpawnPoint.transform.rotation;
-            NavAgent.enabled = false;
             NavAgent.enabled = true;
 
         }

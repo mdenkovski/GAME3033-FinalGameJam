@@ -9,10 +9,15 @@ public class GameManager : MonoBehaviour
     private int NumCoinsToCollect;
     [SerializeField]
     private GameUIBehaviour GameUI;
+    private GameUIManager UIManager;
+
+    private PlayerController PlayerController;
 
     private void Awake()
     {
         FindObjectOfType<PlayerBehaviour>().CoinCollected.AddListener(OnCoinCollected);
+        UIManager = FindObjectOfType<GameUIManager>();
+        PlayerController = FindObjectOfType<PlayerController>();
         Initialize();
     }
    
@@ -29,7 +34,13 @@ public class GameManager : MonoBehaviour
 
         if (NumCoinsToCollect <= 0)
         {
-            //TODO: trigger game win
+            GameWin();
         }
+    }
+
+    private void GameWin()
+    {
+        PlayerController.GameEnded();
+        UIManager.ShowGameWin();
     }
 }
