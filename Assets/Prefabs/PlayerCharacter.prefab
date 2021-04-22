@@ -1194,6 +1194,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SpawnPoint: {fileID: 0}
+  CoinCollected:
+    m_PersistentCalls:
+      m_Calls: []
+  SpeedIncreaseAmount: 2
+  SpeedIncreaseDuration: 5
 --- !u!54 &2302928040995323076
 Rigidbody:
   m_ObjectHideFlags: 0

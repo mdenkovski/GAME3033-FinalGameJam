@@ -58,4 +58,25 @@ public class PlayerMovement : MonoBehaviour
             transform.position += movementDirection;
         }
     }
+
+    public void IncreaseSpeed(float amount)
+    {
+        WalkSpeed += amount;
+        RunSpeed += 2 * amount;
+    }
+
+    public void DecreaseSpeed(float amount)
+    {
+        WalkSpeed -= amount;
+        RunSpeed -= 2 * amount;
+
+        if (WalkSpeed < 3)
+        {
+            WalkSpeed = 3;
+        }
+        if (RunSpeed < 6)
+        {
+            RunSpeed = 6;
+        }
+    }
 }
