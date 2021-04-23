@@ -45,15 +45,20 @@ public class PlayerBehaviour : MonoBehaviour
         //check if it is a coin
         if (other.gameObject.CompareTag("Coin"))
         {
-            Debug.Log("Colelcted coin");
+            //Debug.Log("Colelcted coin");
             CoinCollected.Invoke();
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<ItemColliderBehaviour>().ConsumeItem();
         }
         else if (other.gameObject.CompareTag("SpeedBoost")) //check if a speed boost
         {
-            Debug.Log("Vroom Vroom");
+            //Debug.Log("Vroom Vroom");
             StartCoroutine(ApplySpeedBoost());
-            Destroy(other.gameObject);
+            other.gameObject.GetComponent<ItemColliderBehaviour>().ConsumeItem();
+        }
+        else if (other.gameObject.CompareTag("SlowItem")) //check if a slow item
+        {
+            StartCoroutine(SlowSpeed());
+            other.gameObject.GetComponent<ItemColliderBehaviour>().ConsumeItem();
         }
     }
 
@@ -67,5 +72,12 @@ public class PlayerBehaviour : MonoBehaviour
         PlayerMovement.IncreaseSpeed(SpeedIncreaseAmount);
         yield return new WaitForSeconds(SpeedIncreaseDuration);
         PlayerMovement.DecreaseSpeed(SpeedIncreaseAmount);
+    }
+
+    IEnumerator SlowSpeed()
+    {
+        PlayerMovement.DecreaseSpeed(SpeedIncreaseAmount);
+        yield return new WaitForSeconds(SpeedIncreaseDuration);
+        PlayerMovement.IncreaseSpeed(SpeedIncreaseAmount);
     }
 }
