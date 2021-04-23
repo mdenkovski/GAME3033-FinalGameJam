@@ -10,4 +10,21 @@ public class MainMenuBehaviour : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
+
+    public void OnInstructionsPressed()
+    {
+        SceneManager.LoadScene("Instructions");
+
+    }
+
+    public void OnCreditsPressed()
+    {
+        SceneManager.LoadScene("Credits");
+
+    }
+
+    public void OnQuitPressed()
+    {
+        Application.Quit();
+    }
 }
