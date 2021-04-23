@@ -19,5 +19,9 @@ public class PauseUIBehaviour : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void OnQuitGame()
+    {
+        Application.Quit();
+    }
     
 }
